@@ -1,9 +1,9 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:us-east-1:440191216921:task-definition/td:1",
+    "taskDefinitionArn": "arn:aws:ecs:us-east-1:440191216921:task-definition/td1:1",
     "containerDefinitions": [
         {
-            "name": "tz",
-            "image": "public.ecr.aws/v2p1r5a9/softcery",
+            "name": "test",
+            "image": "440191216921.dkr.ecr.us-east-1.amazonaws.com/repo:ac6bc231b9e105a0ff78e48f539693ae066675e0",
             "cpu": 0,
             "portMappings": [
                 {
@@ -23,7 +23,7 @@
             "logConfiguration": {
                 "logDriver": "awslogs",
                 "options": {
-                    "awslogs-group": "/ecs/td",
+                    "awslogs-group": "/ecs/td1",
                     "awslogs-create-group": "true",
                     "awslogs-region": "us-east-1",
                     "awslogs-stream-prefix": "ecs"
@@ -31,7 +31,7 @@
             }
         }
     ],
-    "family": "td",
+    "family": "td1",
     "executionRoleArn": "arn:aws:iam::440191216921:role/ecsTaskExecutionRole",
     "networkMode": "awsvpc",
     "revision": 1,
@@ -45,7 +45,13 @@
             "name": "ecs.capability.execution-role-awslogs"
         },
         {
+            "name": "com.amazonaws.ecs.capability.ecr-auth"
+        },
+        {
             "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
+        },
+        {
+            "name": "ecs.capability.execution-role-ecr-pull"
         },
         {
             "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
@@ -65,13 +71,13 @@
     "requiresCompatibilities": [
         "FARGATE"
     ],
-    "cpu": "1024",
-    "memory": "3072",
+    "cpu": "512",
+    "memory": "1024",
     "runtimePlatform": {
         "cpuArchitecture": "X86_64",
         "operatingSystemFamily": "LINUX"
     },
-    "registeredAt": "2023-05-14T09:12:25.753Z",
+    "registeredAt": "2023-05-14T20:34:54.446Z",
     "registeredBy": "arn:aws:iam::440191216921:root",
     "tags": []
 }
