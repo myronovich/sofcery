@@ -2,7 +2,7 @@
     "taskDefinitionArn": "arn:aws:ecs:us-east-1:440191216921:task-definition/td:1",
     "containerDefinitions": [
         {
-            "name": "test",
+            "name": "tz",
             "image": "public.ecr.aws/v2p1r5a9/softcery",
             "cpu": 0,
             "portMappings": [
