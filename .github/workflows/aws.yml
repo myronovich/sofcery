@@ -32,7 +32,7 @@ on:
 
 env:
   AWS_REGION: us-east-1                   # set this to your preferred AWS region, e.g. us-west-1
-  ECR_REPOSITORY: public.ecr.aws/v2p1r5a9/softcery          # set this to your Amazon ECR repository name
+  ECR_REPOSITORY: 440191216921.dkr.ecr.us-east-1.amazonaws.com/repo          # set this to your Amazon ECR repository name
   ECS_SERVICE: testservice                  # set this to your Amazon ECS service name
   ECS_CLUSTER: testfg                 # set this to your Amazon ECS cluster name
   ECS_TASK_DEFINITION: td.json # set this to the path to your Amazon ECS task definition
