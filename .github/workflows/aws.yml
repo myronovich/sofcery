@@ -73,7 +73,8 @@ jobs:
       run: docker images
     - name: Push manually
       #run: docker push ${{ env.ECR }}/${{ env.CONTAINER_NAME }}:${{ env.TAG }}
-      run: docker push ${{ env.ECR }}:${{ env.TAG }}    
+      #run: docker push ${{ env.ECR }}:${{ env.TAG }}   
+      run: docker push ${{ env.TAG }}   
 
 #------------------
     #- name: Build, tag, and push image to Amazon ECR
