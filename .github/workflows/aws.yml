@@ -58,7 +58,8 @@ jobs:
       with:
          #registry: ${{ steps.login-ecr.outputs.registry }}
          #repository: ${{ env.ECR_REPOSITORY }}
-          tags: ${{ env.ECR }}/${{ env.CONTAINER_NAME }}:${{ env.TAG }}
+         #tags: ${{ env.ECR }}/${{ env.CONTAINER_NAME }}:${{ env.TAG }}
+          tags: ${{ env.ECR }}/:${{ env.TAG }}
           outputs: type=docker
           
           add_git_labels: true
