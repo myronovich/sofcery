@@ -60,11 +60,15 @@ jobs:
           repository: ${{ env.ECR_REPOSITORY }}
           
           add_git_labels: true
-          push: true
+          push: false
           tags: ${{ github.sha }}
           tag_with_ref: true
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new
+          
+    - name: Push manually
+      run: docker push 440191216921.dkr.ecr.us-east-1.amazonaws.com/repo{{ env.tz }}:${{ env.tz }}
+          
 
 #------------------
     #- name: Build, tag, and push image to Amazon ECR
