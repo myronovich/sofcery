@@ -65,7 +65,10 @@ jobs:
           tag_with_ref: true
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new
-          
+       
+               
+    - name: Push manually
+      run: docker images
     - name: Push manually
       run: docker push 440191216921.dkr.ecr.us-east-1.amazonaws.com/repo:1
           
