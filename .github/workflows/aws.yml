@@ -10,9 +10,9 @@ env:
   ECS_SERVICE: testservice                  # set this to your Amazon ECS service name
   ECS_CLUSTER: testfg                 # set this to your Amazon ECS cluster name
   ECS_TASK_DEFINITION: td.json # set this to the path to your Amazon ECS task definition
-                                               # file, e.g. .aws/task-definition.json
+  ECR: 440191216921.dkr.ecr.us-east-1.amazonaws.com/repo:1                                             # file, e.g. .aws/task-definition.json
   CONTAINER_NAME: tz           # set this to the name of the container in the
-                                               # containerDefinitions section of your task definition
+  TAG: test                                             # containerDefinitions section of your task definition
 
 permissions:
   contents: read
@@ -56,8 +56,10 @@ jobs:
       id: build-image
       uses: docker/build-push-action@v4
       with:
-          registry: ${{ steps.login-ecr.outputs.registry }}
-          repository: ${{ env.ECR_REPOSITORY }}
+         #registry: ${{ steps.login-ecr.outputs.registry }}
+         #repository: ${{ env.ECR_REPOSITORY }}
+          tags: ${{ env.ECR }}/${{ env.CONTAINER_NAME }}:${{ env.TAG }}
+          outputs: type=docker
           
           add_git_labels: true
           push: false
@@ -67,10 +69,10 @@ jobs:
           cache-to: type=local,dest=/tmp/.buildx-cache-new
        
                
-    - name: Push manually
+    - name: List images
       run: docker images
     - name: Push manually
-      run: docker push 440191216921.dkr.ecr.us-east-1.amazonaws.com/repo:1
+      run: docker push ${{ env.ECR }}/${{ env.CONTAINER_NAME }}:${{ env.TAG }}
           
 
 #------------------
@@ -89,6 +91,13 @@ jobs:
         # docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
         #docker push $ECR_REPOSITORY:$IMAGE_TAG
         #echo "image=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG" >> $GITHUB_OUTPUT
+
+
+
+
+
+
+
 
     - name: Fill in the new image ID in the Amazon ECS task definition
       id: task-def
