@@ -63,7 +63,7 @@ jobs:
           
           add_git_labels: true
           push: false
-          tags: ${{ github.sha }}
+          #tags: ${{ github.sha }}
           tag_with_ref: true
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new
