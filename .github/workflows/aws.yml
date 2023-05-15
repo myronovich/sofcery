@@ -67,7 +67,7 @@ jobs:
           cache-to: type=local,dest=/tmp/.buildx-cache-new
           
     - name: Push manually
-      run: docker push 440191216921.dkr.ecr.us-east-1.amazonaws.com/repo{{ env.tz }}:${{ env.tz }}
+      run: docker push 440191216921.dkr.ecr.us-east-1.amazonaws.com/repo{{ env.COINTAINER_NAME }}:${{ env.COINTAINER_NAME }}
           
 
 #------------------
