@@ -82,7 +82,7 @@ jobs:
           repository: ${{ steps.login-ecr.outputs.registry }}/${{ secrets.REGISTRY }}
           add_git_labels: true
           push: true
-          tags: $ECR_REPOSITORY:$IMAGE_TAG
+         # tags: $ECR_REPOSITORY:$IMAGE_TAG
           tag_with_ref: true
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new
