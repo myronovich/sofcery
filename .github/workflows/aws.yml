@@ -13,7 +13,7 @@ env:
   ECR: 440191216921.dkr.ecr.us-east-1.amazonaws.com/repo                                             # file, e.g. .aws/task-definition.json
   CONTAINER_NAME: tz           # set this to the name of the container in the
   TAG: test                                             # containerDefinitions section of your task definition
-
+  IMAGE_NAME: go
 permissions:
   contents: read
 
@@ -59,7 +59,8 @@ jobs:
          #registry: ${{ steps.login-ecr.outputs.registry }}
          #repository: ${{ env.ECR_REPOSITORY }}
          #tags: ${{ env.ECR }}/${{ env.CONTAINER_NAME }}:${{ env.TAG }}
-          tags: ${{ env.ECR }}/:${{ env.TAG }}
+         #tags: ${{ env.ECR }}/:${{ env.TAG }}
+          tags: ${{ env.ECR }}/${{ env.IMAGE_NAME }}:${{ env.TAG }}
           outputs: type=docker
           
           add_git_labels: true
@@ -75,7 +76,7 @@ jobs:
     - name: Push manually
       #run: docker push ${{ env.ECR }}/${{ env.CONTAINER_NAME }}:${{ env.TAG }}
       #run: docker push ${{ env.ECR }}:${{ env.TAG }}   
-      run: docker push ${{ env.TAG }}   
+      run: docker push ${{ env.ECR }}/${{ env.IMAGE_NAME }}:${{ env.TAG }} 
 
 #------------------
     #- name: Build, tag, and push image to Amazon ECR
