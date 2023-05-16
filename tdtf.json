@@ -1,0 +1,33 @@
+{
+    "taskDefinitionArn": "arn:aws:ecs:us-east-1:440191216921:task-definition/worker:2",
+    "containerDefinitions": [
+        {
+            "name": "worker",
+            "image": "440191216921.dkr.ecr.us-east-1.amazonaws.com/repo/worker:latest",
+            "cpu": 2,
+            "memory": 512,
+            "portMappings": [],
+            "essential": true,
+            "environment": [],
+            "mountPoints": [],
+            "volumesFrom": []
+        }
+    ],
+    "family": "worker",
+    "revision": 2,
+    "volumes": [],
+    "status": "ACTIVE",
+    "requiresAttributes": [
+        {
+            "name": "com.amazonaws.ecs.capability.ecr-auth"
+        }
+    ],
+    "placementConstraints": [],
+    "compatibilities": [
+        "EXTERNAL",
+        "EC2"
+    ],
+    "registeredAt": "2023-05-16T07:42:23.121Z",
+    "registeredBy": "arn:aws:iam::440191216921:root",
+    "tags": []
+}
