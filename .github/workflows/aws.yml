@@ -9,7 +9,7 @@ env:
   ECR_REPOSITORY: 440191216921.dkr.ecr.us-east-1.amazonaws.com/repo          # set this to your Amazon ECR repository name
   ECS_SERVICE: testservice                  # set this to your Amazon ECS service name
   ECS_CLUSTER: testfg                 # set this to your Amazon ECS cluster name
-  ECS_TASK_DEFINITION: td.json # set this to the path to your Amazon ECS task definition
+  ECS_TASK_DEFINITION: tdtf.json # set this to the path to your Amazon ECS task definition
   ECR: 440191216921.dkr.ecr.us-east-1.amazonaws.com/repo                                             # file, e.g. .aws/task-definition.json
   CONTAINER_NAME: tz           # set this to the name of the container in the
   TAG: test                                             # containerDefinitions section of your task definition
