@@ -1,3 +1,6 @@
+#yml manifest for github actions 
+#scratch and unused strings(envs) was not removed in orded to better understanding mind flow
+
 name: Deploy to Amazon ECS
 
 on:
@@ -5,14 +8,14 @@ on:
     branches: [ "main" ]
 
 env:
-  AWS_REGION: us-east-1                   # set this to your preferred AWS region, e.g. us-west-1
-  ECR_REPOSITORY: 440191216921.dkr.ecr.us-east-1.amazonaws.com/repo          # set this to your Amazon ECR repository name
-  ECS_SERVICE: service                  # set this to your Amazon ECS service name
-  ECS_CLUSTER: gocluster3                 # set this to your Amazon ECS cluster name
-  ECS_TASK_DEFINITION: tdm.json # set this to the path to your Amazon ECS task definition
-  ECR: 440191216921.dkr.ecr.us-east-1.amazonaws.com/repo                                             # file, e.g. .aws/task-definition.json
-  CONTAINER_NAME: tz           # set this to the name of the container in the
-  TAG: test                                             # containerDefinitions section of your task definition
+  AWS_REGION: us-east-1                   
+  ECR_REPOSITORY: 440191216921.dkr.ecr.us-east-1.amazonaws.com/repo         
+  ECS_SERVICE: service                 
+  ECS_CLUSTER: gocluster3                 
+  ECS_TASK_DEFINITION: tdm.json 
+  ECR: 440191216921.dkr.ecr.us-east-1.amazonaws.com/repo                                            
+  CONTAINER_NAME: tz           
+  TAG: test                                            
   IMAGE_NAME: worker
 permissions:
   contents: read
