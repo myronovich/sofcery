@@ -13,7 +13,7 @@ env:
   ECR: 440191216921.dkr.ecr.us-east-1.amazonaws.com/repo                                             # file, e.g. .aws/task-definition.json
   CONTAINER_NAME: tz           # set this to the name of the container in the
   TAG: test                                             # containerDefinitions section of your task definition
-  IMAGE_NAME: go
+  IMAGE_NAME: worker
 permissions:
   contents: read
 
